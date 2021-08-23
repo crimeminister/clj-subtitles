@@ -2,7 +2,6 @@
   "SubRip format subtitle ingester."
   {:author "Robert Medeiros" :email "robert@clojurist.ca"}
   (:require
-   [clojure.java.io :as io]
    [clojure.string :as string])
   (:require
    [ca.clojurist.subtitles.time :as time]))
@@ -125,7 +124,7 @@ input lines."
         ]
     (for [cue-sequence cue-sequences]
       ;; Keep only the line of cue text, dropping the line number.
-      (map (fn [[line-no line]] line) cue-sequence))))
+      (map (fn [[_ line]] line) cue-sequence))))
 
 
 (defn ->subtitle
